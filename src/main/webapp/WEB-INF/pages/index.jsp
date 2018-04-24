@@ -23,6 +23,7 @@
 <h1>index page</h1>
 
 <p><a href="${pageContext.request.contextPath}/about">about</a></p>
+<p><a href="${pageContext.request.contextPath}/hi/maxim">name in URL</a></p>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
