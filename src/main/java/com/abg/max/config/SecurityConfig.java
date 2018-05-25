@@ -24,13 +24,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		// use jdbc authentication ... oh yeah!!!
+		// use jdbc authentication
 		
 		auth.jdbcAuthentication().dataSource(securityDataSource);
-		
 	}
 
-//	@Override
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+				.anyRequest().authenticated()
+			.and()
+			.formLogin()
+				.loginPage("/showMyLoginPage")
+				.loginProcessingUrl("authenticateTheUser")
+				.permitAll();
+	}
+
+	//	@Override
 //	protected void configure(HttpSecurity http) throws Exception {
 //
 //		http.authorizeRequests()
