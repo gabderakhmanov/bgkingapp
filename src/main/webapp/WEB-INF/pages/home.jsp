@@ -16,17 +16,19 @@
 		Role: <security:authentication property="principal.authorities" />
 	</p>
 
-	<hr>
+	<security:authorize access="hasRole('ADMIN')">
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
+			(Only for Admins)
+		</p>
+	</security:authorize>
 
-	<p>
-		<a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
-		(Only for managers)
-	</p>
-
-	<p>
-		<a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
-		(Only for Admins)
-	</p>
+	<security:authorize access="hasRole('MANAGER')">
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+			(Only for managers)
+		</p>
+	</security:authorize>
 
 	<hr>
 
