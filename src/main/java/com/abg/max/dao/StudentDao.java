@@ -10,4 +10,5 @@ public interface StudentDao {
 
     Student getStudent(int id);
 
+    void deleteStudent(int id);
 }

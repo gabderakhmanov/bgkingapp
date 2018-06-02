@@ -41,4 +41,11 @@ public class StudentDaoImpl implements StudentDao {
 
         return student;
     }
+
+    @Override
+    public void deleteStudent(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        Student student = currentSession.get(Student.class, id);
+        currentSession.delete(student);
+    }
 }

@@ -32,6 +32,11 @@ public class StudentRestController {
         return studentService.getStudent(id);
     }
 
+    @GetMapping("/delstudent/{id}")
+    public void deleteStudent(@PathVariable int id){
+        studentService.deleteStudent(id);
+    }
+
 
 
 
