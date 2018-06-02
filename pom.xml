@@ -15,6 +15,9 @@
     <properties>
         <springframework.version>5.0.2.RELEASE</springframework.version>
         <springsecurity.version>5.0.0.RELEASE</springsecurity.version>
+        <hibernate.version>5.2.16.Final</hibernate.version>
+        <mysql.connector.version>5.1.45</mysql.connector.version>
+        <c3po.version>0.9.5.2</c3po.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -51,11 +54,30 @@
             <version>${springsecurity.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
         <!-- Add Jackson for JSON converters -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.5</version>
+        </dependency>
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <!-- Add MySQL and C3P0 support -->
@@ -96,6 +118,13 @@
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- to compensate for java 9+ not including jaxb -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
         </dependency>
 
     </dependencies>

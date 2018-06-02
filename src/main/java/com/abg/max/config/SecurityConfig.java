@@ -18,13 +18,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// add a reference to our security data source
 	
 	@Autowired
-	private DataSource securityDataSource;
+	private DataSource myDataSource;
 	
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// use jdbc authentication
-		auth.jdbcAuthentication().dataSource(securityDataSource);
+		auth.jdbcAuthentication().dataSource(myDataSource);
 	}
 
 	@Override
