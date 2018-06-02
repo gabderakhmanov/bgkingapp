@@ -20,24 +20,31 @@ public class StudentRestController {
     @Autowired
     private StudentService studentService;
 
-    //private List<Student> theStudents;
-
-//    @PostConstruct
-//    public void loadData(){
-//
-//        theStudents = new ArrayList<>();
-////
-////        theStudents.add(new Student("John", "Cool"));
-////        theStudents.add(new Student("Mary", "Lee"));
-////        theStudents.add(new Student("Tom", "Sailor"));
-//    }
-
-
     // "/students" endpoint
     @GetMapping("/students")
     public List<Student> getStudents() {
         return studentService.getStudents();
     }
+
+
+    @GetMapping("/student/{id}")
+    public Student getStudent(@PathVariable int id){
+        return studentService.getStudent(id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    // "/students/{studentId}" endpoint
 //    @GetMapping("/students/{studentId}")

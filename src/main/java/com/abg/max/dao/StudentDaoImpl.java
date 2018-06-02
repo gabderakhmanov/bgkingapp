@@ -23,15 +23,22 @@ public class StudentDaoImpl implements StudentDao {
         Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-       // Query<Student> theQuery = currentSession.createQuery("from Student", Student.class);
-
-        String q = "from Student";
-
-        Query<Student> theQuery = currentSession.createQuery(q, Student.class);
+        Query<Student> theQuery = currentSession.createQuery("from Student", Student.class);
 
         // execute query and get result list
         List<Student> students = theQuery.getResultList();
 
         return students;
+    }
+
+    @Override
+    public Student getStudent(int id) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        // now retrieve/read from database using the primary key
+        Student student = currentSession.get(Student.class, id);
+
+        return student;
     }
 }
